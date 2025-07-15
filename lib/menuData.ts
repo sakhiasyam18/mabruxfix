@@ -3,53 +3,90 @@
 interface MenuItem {
   id: string;
   text: string;
-  icon: string; // Nama komponen ikon
+  icon: string; // Nama komponen ikon (menggunakan ikon yang sudah ada di Sidebar.tsx)
   link: string;
   roles: string[]; // Peran pengguna yang diizinkan melihat menu ini
 }
 
 export const menuData: MenuItem[] = [
   {
-    id: "dashboard-ppih",
-    text: "Dashboard PPIH", // Sesuai dengan "Dashboard" untuk PPIH
-    icon: "DashboardIcon",
-    link: "/ppih/dashboard",
-    roles: ["PPIH"],
+    id: "home",
+    text: "Home",
+    icon: "DashboardIcon", // Menggunakan ikon yang sudah ada
+    link: "/",
+    roles: ["public"], // Terlihat untuk semua orang
   },
   {
-    id: "dashboard-travel",
-    text: "Dashboard Travel", // Sesuai dengan "Dashboard" untuk Travel
-    icon: "DashboardIcon",
-    link: "/travel/dashboard",
-    roles: ["Travel"],
+    id: "our-division",
+    text: "Our Division",
+    icon: "UsersIcon", // Menggunakan ikon yang sudah ada
+    link: "#", // Mengubah link kosong menjadi # karena submenu tidak diimplementasikan
+    roles: ["public"],
   },
   {
-    id: "list-jemaah", // ID baru, lebih deskriptif
-    text: "List Jemaah", // Teks menu sesuai permintaan
-    icon: "UsersIcon", // Menggunakan ikon Users, bisa diganti jika ada ikon spesifik Jemaah
-    link: "/dashboard/users", // Asumsi ini adalah halaman yang menampilkan daftar pengguna/jemaah
-    roles: ["PPIH", "Travel"], // Hanya PPIH dan Travel yang bisa melihat list jemaah
+    id: "company-profile",
+    text: "Company Profile",
+    icon: "ProfileIcon", // Menggunakan ikon yang sudah ada
+    link: "#", // Mengubah link kosong menjadi #
+    roles: ["public"],
   },
   {
-    id: "add-jemaah", // ID baru
-    text: "Tambah Jemaah", // Teks menu sesuai permintaan
-    icon: "ProfileIcon", // Contoh ikon, bisa diganti
-    link: "/dashboard/add-user", // Asumsi ini adalah rute ke halaman untuk menambah pengguna/jemaah baru
-    roles: ["PPIH", "Travel"], // Hanya PPIH dan Travel yang bisa menambah jemaah
+    id: "join-us",
+    text: "Join Us",
+    icon: "ProfileIcon", // Menggunakan ikon yang sudah ada
+    link: "#", // Mengubah link kosong menjadi #
+    roles: ["public"],
   },
   {
-    id: "login",
-    text: "Login",
-    icon: "ProfileIcon",
-    link: "/login",
-    roles: ["public"], // Tetap terlihat untuk umum
+    id: "blog-news",
+    text: "Blog & News",
+    icon: "DashboardIcon", // Menggunakan ikon yang sudah ada
+    link: "news/latest",
+    roles: ["public"],
   },
-  // Jika ada menu lain yang relevan untuk Pilgrim atau Mutawali (misalnya Profil Saya), tambahkan di sini
+  {
+    id: "gallery",
+    text: "Gallery",
+    icon: "UsersIcon", // Menggunakan ikon yang sudah ada
+    link: "gallery",
+    roles: ["public"],
+  },
+  {
+    id: "contact-us",
+    text: "Contact Us",
+    icon: "ProfileIcon", // Menggunakan ikon yang sudah ada
+    link: "contact-us",
+    roles: ["public"],
+  },
+  {
+    id: "language-switcher", // ID untuk menu "globe" (pemilih bahasa)
+    text: "Language", // Teks untuk ikon globe
+    icon: "DashboardIcon", // Placeholder, Anda bisa membuat ikon globe khusus atau pakai react-icons
+    link: "#", // Biasanya pemilih bahasa tidak mengarah ke link baru, tapi membuka modal/dropdown
+    roles: ["public"],
+  },
+  {
+    id: "admin-dashboard", // ID untuk menu "user" (admin dashboard)
+    text: "Admin Dashboard", // Teks untuk ikon user
+    icon: "ProfileIcon", // Placeholder, Anda bisa membuat ikon user khusus atau pakai react-icons
+    link: "admin/dashboard",
+    roles: ["Admin"], // Mengasumsikan ada peran 'Admin' baru untuk ini
+  },
+  // Catatan: Jika Anda ingin kembali ke menu Dashboard PPIH/Travel yang sebelumnya,
+  // Anda harus menambahkannya kembali ke daftar ini dan menyesuaikan roles-nya.
+  // Contoh:
   // {
-  //   id: "my-profile",
-  //   text: "Profil Saya",
-  //   icon: "ProfileIcon",
-  //   link: "/profile",
-  //   roles: ["Pilgrim", "Mutawali"], // Contoh: hanya terlihat untuk Pilgrim/Mutawali
+  //   id: "dashboard-ppih",
+  //   text: "Dashboard PPIH",
+  //   icon: "DashboardIcon",
+  //   link: "/ppih/dashboard",
+  //   roles: ["PPIH"],
+  // },
+  // {
+  //   id: "dashboard-travel",
+  //   text: "Dashboard Travel",
+  //   icon: "DashboardIcon",
+  //   link: "/travel/dashboard",
+  //   roles: ["Travel"],
   // },
 ];
